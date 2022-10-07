@@ -11,19 +11,15 @@ _WARNING = true  --是否开启音频文件过多报警
 _AUTOCLR = 20 --音频文件过多自动清理，为-1时不清理
 -------------------------------------------------
 
-----------------------Defs-----------------------
--- @Defs 脚本的函数和常量定义.
---
--- @func string.split(str,split_char)
+----------------------func-----------------------
+-- @func 脚本的函数和常量定义.
+-- @string.split(str,split_char)
 -- 根据split_char分割str并存入table.
---
--- @func delete_file(path)
+-- @delete_file(path)
 -- 删除path(必须是一个存在的文件夹或文件).
---
--- @func getFileList(path)
+-- @getFileList(path)
 -- 将path(必须是一个存在的文件夹)下所有文件存入table.
---
--- @func clr(path)
+-- @clr(path)
 -- 递归方式删除path(必须是存在的文件夹)内所有文件.
 -- !!!Warning: path目录下不能有文件夹存在,否则报错.
 -------------------------------------------------
@@ -106,6 +102,18 @@ clr = function(path)
     end
 end
 
+----------------------Const----------------------
+-- @Const 常量定义,一些路径和值.
+-- @time _ONEFILE=true 时失效，作用于文件名.
+-- @nargs ToDO-List 内容.
+-- @rest 用户输入的 mml 内容.
+-- @mml2mid_path 用于添加 mml2mid 环境变量的路径地址.
+-- @timidity_path 作用同上.
+-- @fileName 记录要生成的 mml 文件的名字.
+-- @mml_file_path 生成 mml 的文件名(fileName.mml).
+-- @wav_file_path 同上,无损波形文件(*.wav).
+-- @mid_file_path 同上,生成的mid文件(*.mid).
+-------------------------------------------------
 local time = os.date('%Y%m%d%H%M%S-')
 local nargs = string.split(msg.fromMsg,'>')
 local rest = string.sub(msg.fromMsg,#'l2m>'+1)
@@ -116,8 +124,8 @@ local mml_file_path = fileName..'.mml'
 local wav_file_path = fileName..'.wav'
 local mid_file_path = fileName..'.mid'
 
--------------------------------------------------
--- @script run 脚本运行过程
+----------------------Proc-----------------------
+-- @Proc run 脚本运行过程
 -------------------------------------------------
 if not getUserConf(getDiceQQ(),'l2m:state') then
     os.execute("setx \"path\" \""..mml2mid_path..";"..timidity_path..";%path%\"")
