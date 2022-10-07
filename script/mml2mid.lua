@@ -143,10 +143,10 @@ if nargs[2] ~= 'clr' then
         if mid2wav_stat then
             return '[CQ:record,file='..wav_file_path..']\f'..'mml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
         else
-            return '>timidity: 转换音频格式错误!'
+            return '>timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。'
         end
     else
-        return '>mml2mid: mml语法错误!'
+        return '>mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?'
     end
 else
     def = clr(mml2mid_path..'\\project')
