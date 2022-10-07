@@ -67,9 +67,11 @@ clr = function(path)
     file_list = getFileList(path)
     if #file_list ~= 0 then
         for k,v in pairs(file_list) do
-            delete_file(path.."\\"..v)
+            if file_list[v] ~= 'init' then
+                delete_file(path.."\\"..v)
+            end
         end
-        return '{self}已清理完毕√'
+        return '{self}音频缓存已清理完毕√'
     else
         return '{self}清理音频缓存失败x'
     end
@@ -100,5 +102,7 @@ if nargs[2] ~= 'clr' then
     os.execute('timidity '..mid_file_path..' -Ow -o '..wav_file_path)
     return '[CQ:record,file='..wav_file_path..']'
 else
-    return clr(mml2mid_path..'\\project')
+    def = clr(mml2mid_path..'\\project')
+    write_file(mml2mid_path..'\\project\\init','','w+')
+    return def
 end
