@@ -34,8 +34,17 @@
 <summary>2022年10月8日</summary>
 <b>初步框架版本编写完毕。</b>
 <h5>新增</h5>
-1. `mml2mid.lua` 新增一些配置项。
-2. 新增了对 `timidity.cfg` 的查询功能.
+1. <i>mml2mid.lua</i> 新增一些配置项。
+2. 新增了对 <i>timidity.cfg</i> 的查询功能.
 <h5>删减</h5>
 1. 改动了部分语法.
+</details>
+
+<details>
+<summary>2022年10月2日</summary>
+<b>准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</b>
+<h5>新增</h5>
+1. 添加<i>timidity</i>，放弃了原本直接发送<i>midi</i>序列的方式(这样<i>Go-cqhttp</i>会发不出语音)，在发送语音前会对<i>*.mid</i>文件进行转码再发送。
+<h5>修复</h5>
+1. 修复了一些bug
 </details>
