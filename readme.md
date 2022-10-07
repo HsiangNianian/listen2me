@@ -16,8 +16,7 @@
 }
 ```
 
-- [x] Windows 版
-- [ ] Linux 版
+此分支为Windows版本。
 
 # 参考
 
