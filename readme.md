@@ -1,2 +1,4 @@
 # 参考
-- <http://hpc.jp/~mml2mid/>
+- <[mml2mid官网]>
+
+[mml2mid官网]: http://hpc.jp/~mml2mid
