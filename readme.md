@@ -1,5 +1,7 @@
 # listen2me
 
+为Dice!编写的Lua脚本，用于mml作曲试听。
+
 ```json
 {
     "mod":"listen2me",
@@ -13,6 +15,9 @@
     }
 }
 ```
+
+- [x] Windows 版
+- [ ] Linux 版
 
 # 参考
 
