@@ -24,3 +24,18 @@
 
 - <http://hpc.jp/~mml2mid>
 - <https://man.archlinux.org/man/timidity.cfg.5>
+- <https://man.archlinux.org/man/community/timidity++/timidity.1.en>
+
+# 更新日志
+
+>此日志写的比工程文件要晚那么一点。
+
+<details>
+<summary>2022年10月8日</summary>
+<br>
+Well, you asked for it!
+\```diff
++ asdsa
+- dasda
+\```
+</details>

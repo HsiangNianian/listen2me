@@ -7,7 +7,7 @@
 
 --------------------settings---------------------
 _ONEFILE = 'test'
--- 是否将每次的乐谱记录在同一个文件内。
+-- 是否将每次的乐谱记录在同一个文件内.
 
 -- _WARNING = 10
 -- 音频文件过多报警上限,未填时默认10
@@ -36,18 +36,6 @@ write_file = function(path, text, mode)
     file = io.open(path, mode)
     file.write(file, text)
     io.close(file)
-end
-
-read_file = function(path, mode)
-    local text = ""
-    local file = io.open(path, mode)
-    if (file ~= nil) then
-        text = file.read(file, "*a")
-        io.close(file)
-    else
-        return "没有该文件或文件内容为空哦"
-    end
-    return text
 end
 
 string.split = function(str,split_char)
@@ -178,7 +166,8 @@ if nargs[2] ~= 'clr' then
     if mml2mid_stat then
         mid2audio_stat,_ = os.execute(os_mid2audio)
         if mid2audio_stat then
-            return '[CQ:record,file='..audio_file_path..']'--..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
+            return '[CQ:record,file='..audio_file_path..']'
+                --..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
         else
             return '>timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。'
         end
