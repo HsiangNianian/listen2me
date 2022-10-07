@@ -90,15 +90,15 @@ end
 
 clr = function(path)
     file_list = getFileList(path)
-    if #file_list ~= 0 then
+    if #file_list >= 2 then
         for k,v in pairs(file_list) do
             if file_list[v] ~= 'init' then
                 delete_file(path.."\\"..v)
             end
         end
-        return '{self}音频缓存已清理完毕√'
+        return '>l2m>clr: {self}音频缓存已清理完毕√'
     else
-        return '{self}清理音频缓存失败x'
+        return '>l2m>clr: {self}清理音频缓存失败x'
     end
 end
 
