@@ -96,7 +96,6 @@ end
 -- return nargs[2]
 
 if nargs[2] ~= 'clr' then
-
     write_file(mml_file_path,rest,'w+')
     os.execute('mml2mid '..mml_file_path);
     os.execute('timidity '..mid_file_path..' -Ow -o '..wav_file_path)
