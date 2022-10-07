@@ -141,7 +141,7 @@ if nargs[2] ~= 'clr' then
     if mml2mid_stat then
         mid2wav_stat,_ = os.execute('timidity '..mid_file_path..' -Ow -o '..wav_file_path)
         if mid2wav_stat then
-            return '[CQ:record,file='..wav_file_path..']\f'..'mml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
+            return '[CQ:record,file='..wav_file_path..']'--..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
         else
             return '>timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。'
         end
