@@ -32,10 +32,10 @@
 
 <details>
 <summary>2022年10月8日</summary>
-<br>
-Well, you asked for it!
-\```diff
-+ asdsa
-- dasda
-\```
+<b>初步框架版本编写完毕。</b>
+<h5>新增</h5>
+1. `mml2mid.lua` 新增一些配置项。
+2. 新增了对 `timidity.cfg` 的查询功能.
+<h5>删减</h5>
+1. 改动了部分语法.
 </details>
