@@ -6,9 +6,16 @@
 -------------------------------------------------
 
 --------------------settings---------------------
-_ONEFILE = false --是否将每次的乐谱记录在同一个文件内
-_WARNING = true  --是否开启音频文件过多报警
-_AUTOCLR = 20 --音频文件过多自动清理，为-1时不清理
+_ONEFILE = 'test'
+-- 是否将每次的乐谱记录在同一个文件内。
+
+-- _WARNING = 10
+-- 音频文件过多报警上限,未填时默认10
+
+_AUTOCLR = 20
+-- 音频文件自动清理，为-1时不清理,未填时默认20
+
+_SUBNAME = '.mp3' --规定输出格式
 -------------------------------------------------
 
 ----------------------func-----------------------
@@ -114,15 +121,31 @@ end
 -- @wav_file_path 同上,无损波形文件(*.wav).
 -- @mid_file_path 同上,生成的mid文件(*.mid).
 -------------------------------------------------
-local time = os.date('%Y%m%d%H%M%S-')
+local time = os.date('%Y%m%d%H%M%S')
 local nargs = string.split(msg.fromMsg,'>')
 local rest = string.sub(msg.fromMsg,#'l2m>'+1)
 local mml2mid_path = getDiceDir()..'\\mod\\listen2me\\mml2mid'
 local timidity_path = getDiceDir()..'\\mod\\listen2me\\timidity'
-local fileName = mml2mid_path..'\\project\\'..time..'-'..msg.fromQQ
+local file_list = getFileList(mml2mid_path..'\\project') 
+
+if _ONEFILE then 
+    fileName = mml2mid_path..'\\project\\'.._ONEFILE
+else 
+    fileName = mml2mid_path..'\\project\\'..msg.fromQQ..time 
+end
+
 local mml_file_path = fileName..'.mml'
-local wav_file_path = fileName..'.wav'
+local audio_file_path = fileName.._SUBNAME
 local mid_file_path = fileName..'.mid'
+local os_mml2mid = 'mml2mid '..mml_file_path..' '..mid_file_path
+
+if _SUBNAME == '.mp3' then 
+    os_mid2audio = 'timidity '..mid_file_path..' -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k '..audio_file_path
+elseif _SUBNAME == '.wav' then
+    os_mid2audio = 'timidity '..mid_file_path..' -Ow -o '..audio_file_path
+end
+-- 'timidity '..mid_file_path..' -Ow -o '..audio_file_path
+-- 'timidity '..mid_file_path..' -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k '..audio_file_path
 
 ----------------------Proc-----------------------
 -- @Proc run 脚本运行过程
@@ -136,12 +159,26 @@ end
 -- return nargs[2]
 
 if nargs[2] ~= 'clr' then
+    if _ONEFILE then
+        clr(mml2mid_path..'\\project')
+        write_file(mml2mid_path..'\\project\\init','','w+')
+    end
+--[[
+    if #file_list >= _WARNING then
+        return '{self}音频文件过多辣，不想干活了！'
+    end
+]]--
+    if #file_list >= _AUTOCLR then
+        clr(mml2mid_path..'\\project')
+        write_file(mml2mid_path..'\\project\\init','','w+')
+    end
+
     write_file(mml_file_path,rest,'w+')
-    mml2mid_stat,_ = os.execute('mml2mid '..mml_file_path..' '..mid_file_path)
+    mml2mid_stat,_ = os.execute(os_mml2mid)
     if mml2mid_stat then
-        mid2wav_stat,_ = os.execute('timidity '..mid_file_path..' -Ow -o '..wav_file_path)
-        if mid2wav_stat then
-            return '[CQ:record,file='..wav_file_path..']'--..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
+        mid2audio_stat,_ = os.execute(os_mid2audio)
+        if mid2audio_stat then
+            return '[CQ:record,file='..audio_file_path..']'--..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
         else
             return '>timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。'
         end
