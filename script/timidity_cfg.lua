@@ -40,6 +40,6 @@ if #nargs == 3 then return cfg_text1 end
 
 for k,v in ipairs(nargs) do
     if v == 'dir' then
-        return
+        return 'dir'
     end
 end
