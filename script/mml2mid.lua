@@ -175,7 +175,7 @@ if nargs[2] ~= 'clr' then
         return '>mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?'
     end
 else
-    def = clr(mml2mid_path..'\\project')
+    status = clr(mml2mid_path..'\\project')
     write_file(mml2mid_path..'\\project\\init','','w+')
-    return def
+    return status
 end
