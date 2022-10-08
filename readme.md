@@ -40,6 +40,8 @@
 1. 改动了部分语法.
 </details>
 
+***
+
 <details>
 <summary>2022年10月2日</summary>
 <b>准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</b>
