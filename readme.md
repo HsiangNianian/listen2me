@@ -7,7 +7,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.0.0",
+    "ver":"1.0.2",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -26,7 +26,7 @@
 - <https://man.archlinux.org/man/timidity.cfg.5>
 - <https://man.archlinux.org/man/community/timidity++/timidity.1.en>
 
-# 更新日志
+# 日志
 
 >此日志写的比工程文件要晚那么一点。
 
