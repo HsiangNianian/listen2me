@@ -33,9 +33,10 @@
 ***
 
 <details>
-<summary>2022年10月9日 实现了<i>timidity.cfg</i>的自动写入。</summary>
+<summary>2022年10月9日 实现了timidity.cfg的自动写入。</summary>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增了对<i>timidity</i>音源的检测。
+2.<i>mml2mid.lua</i> 新增<i>_FRAMWORK</i>配置项，判断框架类型。
 <h5>修复</h5>
 1. 修复了因<i>timidity.cfg</i>参数<b>dir</b>固定而无法输出有声音的音频问题。
 </details>
