@@ -1,6 +1,7 @@
 # listen2me
 
-为Dice!编写的Lua脚本，用于mml作曲试听。
+为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
+
 此分支为Windows版本。
 
 ```json
