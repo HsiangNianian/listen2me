@@ -33,8 +33,7 @@
 ***
 
 <details>
-<summary>2022年10月9日</summary>
-<b>实现了<i>timidity.cfg</i>的自动写入。</b>
+<summary>2022年10月9日 实现了<i>timidity.cfg</i>的自动写入。</summary>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增了对<i>timidity</i>音源的检测。
 <h5>修复</h5>
@@ -42,8 +41,7 @@
 </details>
 
 <details>
-<summary>2022年10月8日</summary>
-<b>初步框架版本编写完毕。</b>
+<summary>2022年10月8日 初步框架版本编写完毕。</summary>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增一些配置项。
 2. 新增了对 <i>timidity.cfg</i> 的查询功能。
@@ -52,8 +50,7 @@
 </details>
 
 <details>
-<summary>2022年10月2日</summary>
-<b>准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</b>
+<summary>2022年10月2日 准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</summary>
 <h5>新增</h5>
 1. 添加<i>timidity</i>，放弃了原本直接发送<i>midi</i>序列的方式(这样<i>Go-cqhttp</i>会发不出语音)，在发送语音前会对<i>*.mid</i>文件进行转码再发送。
 <h5>修复</h5>
