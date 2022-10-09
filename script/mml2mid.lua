@@ -172,7 +172,6 @@ if nargs[2] ~= "clr" then
         mid2audio_stat, _ = os.execute(os_mid2audio)
         if mid2audio_stat then
             if _FRAMWORK == "Gocq" then
-                --..'\fmml2mid_stat:'..tostring(mml2mid_stat)..'\nmid2wav_stat:'..tostring(mid2wav_stat)
                 return "[CQ:record,file=file:///" .. audio_file_path .. "]"
             elseif _FRAMWORK == "Mirai" then
                 return "[CQ:record,file=" .. audio_file_path .. "]"
