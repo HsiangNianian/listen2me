@@ -16,7 +16,7 @@ read_file = function(path, mode)
     return text
 end
 
-string.split = function(str,split_char)
+string.split = function(str, split_char)
     local str_tab = {}
     while (true) do
         local findstart, findend = string.find(str, split_char, 1, true)
@@ -32,14 +32,16 @@ string.split = function(str,split_char)
     return str_tab
 end
 
-local nargs = string.split(msg.fromMsg,'>')
-local timidity_cfg_path = getDiceDir()..'\\mod\\listen2me\\timidity'
-local cfg_text1 = read_file(timidity_cfg_path..'\\timidity.cfg')
+local nargs = string.split(msg.fromMsg, ">")
+local timidity_cfg_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
+local cfg_text1 = read_file(timidity_cfg_path .. "\\timidity.cfg")
 
-if #nargs == 3 then return cfg_text1 end
+if #nargs == 3 then
+    return cfg_text1
+end
 
-for k,v in ipairs(nargs) do
-    if v == 'dir' then
+for k, v in ipairs(nargs) do
+    if v == "dir" then
         return
     end
 end
