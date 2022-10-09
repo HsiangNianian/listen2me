@@ -72,9 +72,9 @@ delete_file = function(path)
     return status
 end
 
-getFileList = function(path,sub)
-    local sub = sub or ''
-    local a = io.popen("dir " .. path .. '\\' .. sub .. "/b")
+getFileList = function(path, sub)
+    local sub = sub or ""
+    local a = io.popen("dir " .. path .. "\\" .. sub .. "/b")
     local fileTable = {}
 
     if a == nil then
@@ -118,7 +118,7 @@ local rest = string.sub(msg.fromMsg, #"l2m>" + 1)
 local mml2mid_path = getDiceDir() .. "\\mod\\listen2me\\mml2mid"
 local file_list = getFileList(mml2mid_path .. "\\project")
 local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
-local sf2_list = getFileList(getDiceDir()..'\\mod\\listen2me\\timidity','*.sf2') 
+local sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity", "*.sf2")
 
 if _ONEFILE then
     fileName = mml2mid_path .. "\\project\\" .. _ONEFILE
@@ -145,24 +145,33 @@ end
 -------------------------------------------------
 if not getUserConf(getDiceQQ(), "l2m:state") then
     if #sf2_list ~= 0 then
-        sf2_selected = sf2_list[ranint(1,#sf2_list)]
-        sf2_list_text = ''
-        for k,v in ipairs(sf2_list) do
-            sf2_list_text = v..'\n\t'..sf2_list_text
+        sf2_selected = sf2_list[ranint(1, #sf2_list)]
+        sf2_list_text = ""
+        for k, v in ipairs(sf2_list) do
+            sf2_list_text = v .. "\n\t" .. sf2_list_text
         end
     else
-        return '>timidity: 笨蛋你好像没有装音源(*.sf2)哦...'
+        return ">timidity: 笨蛋你好像没有装音源(*.sf2)哦...\n甩给你一个链接https://github.com/cypress0522/listen2me#%E9%9F%B3%E6%BA%90%E4%B8%8B%E8%BD%BD"
     end
 
-    local cfg_text = [[dir "]]..timidity_path..[["
+    local cfg_text = [[dir "]] .. timidity_path .. [["
 
-soundfont "]]..sf2_selected..[["
+soundfont "]] .. sf2_selected .. [["
 
 #extension opt -U]]
     os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path .. ';%path%"')
     setUserConf(getDiceQQ(), "l2m:state", true)
-    write_file(timidity_path..'\\timidity.cfg',cfg_text,'w+')
-    return os.date("%X") .. " " .. os.date("%x") .. "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t"..mml2mid_path.."\n\t"..timidity_path.."\n>timidity:已自动生成cfg文件~\n\t可用音源"..#sf2_list.."个\n\t"..sf2_list_text.."选择了音源【"..sf2_selected.."】\n请重启框架使环境变量生效!"
+    write_file(timidity_path .. "\\timidity.cfg", cfg_text, "w+")
+    return os.date("%X") ..
+        " " ..
+            os.date("%x") ..
+                "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t" ..
+                    mml2mid_path ..
+                        "\n\t" ..
+                            timidity_path ..
+                                "\n>timidity:已自动生成cfg文件~\n\t可用音源" ..
+                                    #sf2_list ..
+                                        "个\n\t" .. sf2_list_text .. "选择了音源【" .. sf2_selected .. "】\n请重启框架使环境变量生效!"
 end
 
 -- return nargs[2]
@@ -172,7 +181,7 @@ if nargs[2] ~= "clr" then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
     end
-     --
+    --
     --[[
     if #file_list >= _WARNING then
         return '{self}音频文件过多辣，不想干活了！'
