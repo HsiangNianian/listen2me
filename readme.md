@@ -7,7 +7,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.0.4",
+    "ver":"1.1.0",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -30,19 +30,26 @@
 
 > 此日志写的比工程文件要晚那么一点。
 
----
+***
+
+<details>
+<summary>2022年10月9日</summary>
+<b>实现了<i>timidity.cfg<i>的自动写入。</b>
+<h5>新增</h5>
+1. <i>mml2mid.lua</i> 新增了对<i>timidity<i>音源的检测。
+<h5>修复</h5>
+1. 修复了因<i>timidity.cfg<i>参数<b>dir<b>固定而无法输出有声音的音频问题。
+</details>
 
 <details>
 <summary>2022年10月8日</summary>
 <b>初步框架版本编写完毕。</b>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增一些配置项。
-2. 新增了对 <i>timidity.cfg</i> 的查询功能.
+2. 新增了对 <i>timidity.cfg</i> 的查询功能。
 <h5>删减</h5>
-1. 改动了部分语法.
+1. 改动了部分语法。
 </details>
-
----
 
 <details>
 <summary>2022年10月2日</summary>
@@ -50,5 +57,5 @@
 <h5>新增</h5>
 1. 添加<i>timidity</i>，放弃了原本直接发送<i>midi</i>序列的方式(这样<i>Go-cqhttp</i>会发不出语音)，在发送语音前会对<i>*.mid</i>文件进行转码再发送。
 <h5>修复</h5>
-1. 修复了一些bug
+1. 修复了一些bug。
 </details>
