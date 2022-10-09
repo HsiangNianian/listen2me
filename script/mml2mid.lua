@@ -18,7 +18,7 @@ _ONEFILE = "test"
 _AUTOCLR = 20
 -- 音频文件自动清理，为-1时不清理,未填时默认20
 
-_SUBNAME = ".mp3"
+_SUBNAME = ".wav"
 -- 规定输出格式,填写mp3时需要安装ffmpeg.
 -------------------------------------------------
 
@@ -176,7 +176,7 @@ if nargs[2] ~= "clr" then
             elseif _FRAMWORK == "Mirai" then
                 return "[CQ:record,file=" .. audio_file_path .. "]"
             else
-                return '请填写正确的_FRAMWORK配置哦~\n比如"Mirai"或者"Gocq"'
+                return '请填写正确的_FRAMWORK配置哦~\n比如"Mirai"或者"Gocq"。'
             end
         else
             return ">timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。"
