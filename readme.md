@@ -7,12 +7,12 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.0",
+    "ver":"1.1.1",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
     "helpdoc":{
-        "listen2me":"【listen2me - winVer】\n使用mml语言进行作曲\nhttps://github.com/cypress0522/listen2me"
+        "listen2me":"【listen2me[Windows]】\n使用mml语言进行作曲\nhttps://github.com/cypress0522/listen2me"
     }
 }
 ```
@@ -34,11 +34,11 @@
 
 <details>
 <summary>2022年10月9日</summary>
-<b>实现了<i>timidity.cfg<i>的自动写入。</b>
+<b>实现了<i>timidity.cfg</i>的自动写入。</b>
 <h5>新增</h5>
-1. <i>mml2mid.lua</i> 新增了对<i>timidity<i>音源的检测。
+1. <i>mml2mid.lua</i> 新增了对<i>timidity</i>音源的检测。
 <h5>修复</h5>
-1. 修复了因<i>timidity.cfg<i>参数<b>dir<b>固定而无法输出有声音的音频问题。
+1. 修复了因<i>timidity.cfg</i>参数<b>dir</b>固定而无法输出有声音的音频问题。
 </details>
 
 <details>
