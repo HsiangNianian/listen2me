@@ -7,7 +7,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.0.2",
+    "ver":"1.0.3",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -17,20 +17,20 @@
 }
 ```
 
-- [x] Windows 版本
+- [X] Windows 版本
 - [ ] Linux 版本
 
 # 参考
 
-- <http://hpc.jp/~mml2mid>
-- <https://man.archlinux.org/man/timidity.cfg.5>
-- <https://man.archlinux.org/man/community/timidity++/timidity.1.en>
+- [http://hpc.jp/~mml2mid](http://hpc.jp/~mml2mid)
+- [https://man.archlinux.org/man/timidity.cfg.5](https://man.archlinux.org/man/timidity.cfg.5)
+- [https://man.archlinux.org/man/community/timidity++/timidity.1.en](https://man.archlinux.org/man/community/timidity++/timidity.1.en)
 
 # 日志
 
->此日志写的比工程文件要晚那么一点。
+> 此日志写的比工程文件要晚那么一点。
 
-***
+---
 
 <details>
 <summary>2022年10月8日</summary>
@@ -42,7 +42,7 @@
 1. 改动了部分语法.
 </details>
 
-***
+---
 
 <details>
 <summary>2022年10月2日</summary>
