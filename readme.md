@@ -26,6 +26,32 @@
 - [https://man.archlinux.org/man/timidity.cfg.5](https://man.archlinux.org/man/timidity.cfg.5)
 - [https://man.archlinux.org/man/community/timidity++/timidity.1.en](https://man.archlinux.org/man/community/timidity++/timidity.1.en)
 
+# 音源下载
+
+> [Musescore](https://musescore.org/zh-hans/%e7%94%a8%e6%88%b7%e6%89%8b%e5%86%8c/soundfont-%e9%9f%b3%e8%89%b2%e5%ba%93) 提供的三个常见音色库
+
+- FluidR3_GM.sf2 (未压缩大小 141 MB)
+下载 [Fluid-soundfont.tar.gz](http://www.musescore.org/download/fluid-soundfont.tar.gz)
+
+- GeneralUser_GS_1.44-MuseScore.sf2 (未压缩大小 29.8 MB)
+下载 [GeneralUser_GS_1.44-MuseScore.zip](http://www.schristiancollins.com/soundfonts/GeneralUser_GS_1.44-MuseScore.zip) (承蒙 S. Christian Collins 而提供)
+
+- TimGM6mb.sf2 (未压缩大小 5.7 MB)
+下载 [modified TimGM6mb.sf2](http://mscore.svn.sourceforge.net/viewvc/mscore/trunk/mscore/share/sound/TimGM6mb.sf2) (承蒙 Tim Brechbill 而提供)
+
+> [FluidSynth](https://github.com/FluidSynth/fluidsynth/wiki/SoundFont) 提供的音源下载网站
+
+  * [Polyphone Soundfont Collection](https://www.polyphone-soundfonts.com/download-soundfonts) - A collection of Soundfonts on the Polyphone website
+  * [Hammersound](http://www.hammersound.net/) - A nice resource for downloading free SoundFont instrument files.
+  * [Magic Sound Font, version 2.0](http://www.personalcopy.com/sfarkfonts1.htm) (68 MB)
+  * [Arachno SoundFont, version 1.0](http://www.arachnosoft.com/main/download.php?id=soundfont-sf2) (148MB)
+  * [TimGM6mb](http://sourceforge.net/p/mscore/code/HEAD/tree/trunk/mscore/share/sound/TimGM6mb.sf2?format=raw) (6 MB)
+  * [MuseScore_General.sf2](ftp://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General.sf2) (208 MB)
+  * [Timbres Of Heaven GM_GS_XG_SFX V 3.4](http://midkar.com/soundfonts/) (246 MB)
+  * [Sonatina Symphonic Orchestra](http://ftp.osuosl.org/pub/musescore/soundfont/Sonatina_Symphonic_Orchestra_SF2.zip) (503 MB uncompressed)
+  * [Aegean Symphonic Orchestra v2.5 universal](https://sites.google.com/view/hed-sounds/aegean-symphonic-orchestra) (350 MB)
+  * [Salamander C5 Light](https://sites.google.com/view/hed-sounds/salamander-c5-light) (25 MB)
+  
 # 日志
 
 > 此日志写的比工程文件要晚那么一点。
