@@ -9,7 +9,7 @@
 _FRAMWORK = "Gocq" -- Mirai
 -- 框架名称,可选参数:'Mirai'或'Gocq'(默认).
 
-_ONEFILE = os.date('%A') -- false
+_ONEFILE = os.date("%A") -- false
 -- 是否将每次的乐谱记录在同一个文件内.
 
 -- _WARNING = 10
@@ -33,6 +33,8 @@ _SUBNAME = ".mp3" --.wav
 -- @clr(path)
 -- 递归方式删除path(必须是存在的文件夹)内所有文件.
 -- !!!Warning: path目录下不能有文件夹存在,否则报错.
+-- @readFileStringLine(url,line)
+-- 读取文件指定行.
 -------------------------------------------------
 string = require("string")
 
@@ -100,6 +102,21 @@ clr = function(path)
     end
 end
 
+readFileStringLine = function(url, line)
+    local str = ""
+    local i = 1
+    local file = io.open(url, "r")
+    for l in file:lines() do
+        if i == tonumber(line) then
+            str = l
+            break
+        end
+        i = i + 1
+    end
+    file:close()
+    return str
+end
+
 ----------------------Const----------------------
 -- @Const 常量定义,一些路径和值.
 -- @time _ONEFILE=true 时失效，作用于文件名.
@@ -129,13 +146,17 @@ end
 local mml_file_path = fileName .. ".mml"
 local audio_file_path = fileName .. _SUBNAME
 local mid_file_path = fileName .. ".mid"
-local os_mml2mid = "mml2mid " .. mml_file_path .. " " .. mid_file_path
+local os_mml2mid = "mml2mid " .. mml_file_path .. " " .. mid_file_path .. " > " .. mml2mid_path .. "\\os_mml2mid.err"
 
 if _SUBNAME == ".mp3" then
     os_mid2audio =
-        "timidity " .. mid_file_path .. " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " .. audio_file_path
+        "timidity " ..
+        mid_file_path ..
+            " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " ..
+                audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
 elseif _SUBNAME == ".wav" then
-    os_mid2audio = "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path
+    os_mid2audio =
+        "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
 end
 -- 'timidity '..mid_file_path..' -Ow -o '..audio_file_path
 -- 'timidity '..mid_file_path..' -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k '..audio_file_path
@@ -209,7 +230,8 @@ if nargs[2] ~= "clr" then
             return ">timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。"
         end
     else
-        return ">mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?"
+        return ">mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?\n错误详情:" ..
+            readFileStringLine(mml2mid_path .. "\\os_mml2mid.err", 2)
     end
 else
     status = clr(mml2mid_path .. "\\project")

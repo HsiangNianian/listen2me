@@ -7,7 +7,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.1",
+    "ver":"1.1.2",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -63,9 +63,12 @@
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增了对<i>timidity</i>音源的检测。
 2.<i>mml2mid.lua</i> 新增<i>_FRAMWORK</i>配置项，判断框架类型。
+3.<i>mml2mid.lua</i> 新增mml语法报错检测和输出(如果你看得懂那会很有帮助就是了)。
 <h5>修复</h5>
 1. 修复了因<i>timidity.cfg</i>参数<b>dir</b>固定而无法输出有声音的音频问题。
 </details>
+
+***
 
 <details>
 <summary>2022年10月8日 初步框架版本编写完毕。</summary>
@@ -76,6 +79,8 @@
 1. 改动了部分语法。
 </details>
 
+***
+
 <details>
 <summary>2022年10月2日 准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</summary>
 <h5>新增</h5>
@@ -83,3 +88,7 @@
 <h5>修复</h5>
 1. 修复了一些bug。
 </details>
+
+***
+
+2022年10月9日21点44分
