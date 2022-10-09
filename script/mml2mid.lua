@@ -146,6 +146,10 @@ end
 if not getUserConf(getDiceQQ(), "l2m:state") then
     if #sf2_list ~= 0 then
         sf2_selected = sf2_list[ranint(1,#sf2_list)]
+        sf2_list_text = ''
+        for k,v in ipairs(sf2_list) do
+            sf2_list_text = v..'\n\t'..sf2_list_text
+        end
     else
         return '>timidity: 笨蛋你好像没有装音源(*.sf2)哦...'
     end
@@ -158,7 +162,7 @@ soundfont "]]..sf2_selected..[["
     os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path .. ';%path%"')
     setUserConf(getDiceQQ(), "l2m:state", true)
     write_file(timidity_path..'\\timidity.cfg',cfg_text,'w+')
-    return os.date("%X") .. " " .. os.date("%x") .. "\n>listen2me: 初始化成功~\n>timidity:已自动生成cfg文件~\n可用音源"..#sf2_list.."个\n选择了音源:"..sf2_selected.."\n请重启框架使环境变量生效!"
+    return os.date("%X") .. " " .. os.date("%x") .. "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t"..mml2mid_path.."\n\t"..timidity_path.."\n>timidity:已自动生成cfg文件~\n\t可用音源"..#sf2_list.."个\n\t"..sf2_list_text.."选择了音源【"..sf2_selected.."】\n请重启框架使环境变量生效!"
 end
 
 -- return nargs[2]
