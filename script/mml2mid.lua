@@ -72,8 +72,9 @@ delete_file = function(path)
     return status
 end
 
-getFileList = function(path)
-    local a = io.popen("dir " .. path .. "/b")
+getFileList = function(path,sub)
+    local sub = sub or ''
+    local a = io.popen("dir " .. path .. '\\' .. sub .. "/b")
     local fileTable = {}
 
     if a == nil then
@@ -115,8 +116,9 @@ local time = os.date("%Y%m%d%H%M%S")
 local nargs = string.split(msg.fromMsg, ">")
 local rest = string.sub(msg.fromMsg, #"l2m>" + 1)
 local mml2mid_path = getDiceDir() .. "\\mod\\listen2me\\mml2mid"
-local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
 local file_list = getFileList(mml2mid_path .. "\\project")
+local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
+local sf2_list = getFileList(getDiceDir()..'\\mod\\listen2me\\timidity','*.sf2') 
 
 if _ONEFILE then
     fileName = mml2mid_path .. "\\project\\" .. _ONEFILE
@@ -142,9 +144,21 @@ end
 -- @Proc run 脚本运行过程
 -------------------------------------------------
 if not getUserConf(getDiceQQ(), "l2m:state") then
+    if #sf2_list ~= 0 then
+        sf2_selected = sf2_list[ranint(1,#sf2_list)]
+    else
+        return '>timidity: 笨蛋你好像没有装音源(*.sf2)哦...'
+    end
+
+    local cfg_text = [[dir "]]..timidity_path..[["
+
+soundfont "]]..sf2_selected..[["
+
+#extension opt -U]]
     os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path .. ';%path%"')
     setUserConf(getDiceQQ(), "l2m:state", true)
-    return os.date("%X") .. " " .. os.date("%x") .. "\n>listen2me: 初始化成功~\n请重启框架使环境变量生效!"
+    write_file(timidity_path..'\\timidity.cfg',cfg_text,'w+')
+    return os.date("%X") .. " " .. os.date("%x") .. "\n>listen2me: 初始化成功~\n>timidity:已自动生成cfg文件~\n可用音源"..#sf2_list.."个\n选择了音源:"..sf2_selected.."\n请重启框架使环境变量生效!"
 end
 
 -- return nargs[2]
