@@ -8,7 +8,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.2",
+    "ver":"1.1.5",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -56,6 +56,14 @@
 # 日志
 
 > 此日志写的比工程文件要晚那么一点。
+
+***
+
+<details>
+<summary>2022年10月11日 新增配置项。</summary>
+<h5>新增</h5>
+1.<i>mml2mid.lua</i>新增<b>_UPLOAD</b>与<b>_APIPORT</b>配置，详细使用说明见脚本。
+</details>
 
 ***
 
