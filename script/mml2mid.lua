@@ -146,24 +146,24 @@ local file_list = getFileList(mml2mid_path .. "\\project")
 local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
 local sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity", "*.sf2")
 
-if _ONEFILE then
-    fileName = mml2mid_path .. "\\project\\" .. _ONEFILE
+if settings._ONEFILE then
+    fileName = mml2mid_path .. "\\project\\" .. settings._ONEFILE
 else
     fileName = mml2mid_path .. "\\project\\" .. msg.fromQQ .. time
 end
 
 local mml_file_path = fileName .. ".mml"
-local audio_file_path = fileName .. _SUBNAME
+local audio_file_path = fileName .. settings._SUBNAME
 local mid_file_path = fileName .. ".mid"
 local os_mml2mid = "mml2mid " .. mml_file_path .. " " .. mid_file_path .. " > " .. mml2mid_path .. "\\os_mml2mid.err"
 
-if _SUBNAME == ".mp3" then
+if settings._SUBNAME == ".mp3" then
     os_mid2audio =
         "timidity " ..
         mid_file_path ..
             " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " ..
                 audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
-elseif _SUBNAME == ".wav" then
+elseif settings._SUBNAME == ".wav" then
     os_mid2audio =
         "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
 end
@@ -207,17 +207,17 @@ end
 -- return nargs[2]
 
 if nargs[2] ~= "clr" then
-    if _ONEFILE then
+    if settings._ONEFILE then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
     end
     --
     --[[
-    if #file_list >= _WARNING then
+    if #file_list >= settings._WARNING then
         return '{self}音频文件过多辣，不想干活了！'
     end
 ]] if
-        #file_list >= _AUTOCLR
+        #file_list >= settings._AUTOCLR
      then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
@@ -228,9 +228,9 @@ if nargs[2] ~= "clr" then
     if mml2mid_stat then
         mid2audio_stat, _ = os.execute(os_mid2audio)
         if mid2audio_stat then
-            if _FRAMWORK == "Gocq" then
+            if settings._FRAMWORK == "Gocq" then
                 return "[CQ:record,file=file:///" .. audio_file_path .. "]"
-            elseif _FRAMWORK == "Mirai" then
+            elseif settings._FRAMWORK == "Mirai" then
                 return "[CQ:record,file=" .. audio_file_path .. "]"
             else
                 return '请填写正确的_FRAMWORK配置哦~\n比如"Mirai"或者"Gocq"。'
