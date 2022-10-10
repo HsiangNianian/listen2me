@@ -6,27 +6,29 @@
 -------------------------------------------------
 
 --------------------settings---------------------
-_FRAMWORK = "Gocq" -- Mirai
+l2m = {
+['_FRAMWORK'] = "Gocq", -- Mirai
 -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
-_ONEFILE = os.date("%A") -- false
+_ONEFILE = os.date("%A"), -- false
 -- 是否将每次的乐谱记录在同一个文件内.
 
 -- _WARNING = 10
 -- 音频文件过多报警上限,未填时默认10
 
-_AUTOCLR = 20
+['_AUTOCLR'] = 20,
 -- 音频文件自动清理，为-1时不清理,未填时默认20
 
-_SUBNAME = ".mp3" --.wav
+['_SUBNAME'] = ".mp3", --.wav
 -- 规定输出格式,填写mp3时需要安装ffmpeg.
 
-_UPLOAD = true --false
+['_UPLOAD'] = true, --false
 -- 是否在发出语音同时上传mid文件(仅限Gocq).
 -- 对应下参数_APIPORT.
 
-_APIPORT = nil -- 15800
+['_APIPORT'] = nil -- 15800
 -- Gocq 本地 API 端口,填nil时将自动搜寻,若报错请自行填入.
+}
 -------------------------------------------------
 
 ----------------------func-----------------------
