@@ -211,7 +211,6 @@ if nargs[2] ~= "clr" then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
     end
-    --
     --[[
     if #file_list >= settings._WARNING then
         return '{self}音频文件过多辣，不想干活了！'
