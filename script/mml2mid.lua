@@ -1,29 +1,27 @@
 -------------------Declaration-------------------
 -- @listen2me 使用mml作曲~
--- @author Hsiang Nianian,简律纯.
+-- @author O'MIZUSORA,简律纯.
 -- @License MIT.
 -- @git htps://github.com/cypress0522/listen2me
 -------------------------------------------------
-
 --------------------settings---------------------
 settings = {
     _FRAMWORK = "Gocq", -- "Mirai",
     -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
-    _ONEFILE = false,
-     --os.date("%A"),
+    _ONEFILE = false, -- os.date("%A"),
     -- 是否将每次的乐谱记录在同一个文件内.
 
     _WARNING = 18,
     -- 音频文件过多报警上限,未填时默认18
 
     _AUTOCLR = 21,
-    -- 音频文件自动清理，为-1时不清理,未填时默认21
+    -- 音频文件自动清理，未填时默认21
 
-    _SUBNAME = ".mp3", --".wav",
+    _SUBNAME = ".mp3", -- ".wav",
     -- 规定输出格式,填写mp3时需要安装ffmpeg.
 
-    _UPLOAD = true, --false,
+    _UPLOAD = true, -- false,
     -- 是否在发出语音同时上传mid文件(仅限Gocq).
     -- 对应下参数_APIPORT.
 
@@ -92,9 +90,7 @@ getFileList = function(path, sub)
 
     if a == nil then
     else
-        for l in a:lines() do
-            table.insert(fileTable, l)
-        end
+        for l in a:lines() do table.insert(fileTable, l) end
     end
     return fileTable
 end
@@ -146,7 +142,8 @@ local rest = string.sub(msg.fromMsg, #"l2m>" + 1)
 local mml2mid_path = getDiceDir() .. "\\mod\\listen2me\\mml2mid"
 local file_list = getFileList(mml2mid_path .. "\\project")
 local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
-local sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity", "*.sf2")
+local sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity",
+    "*.sf2")
 
 if settings._ONEFILE then
     fileName = mml2mid_path .. "\\project\\" .. settings._ONEFILE
@@ -157,17 +154,19 @@ end
 local mml_file_path = fileName .. ".mml"
 local audio_file_path = fileName .. settings._SUBNAME
 local mid_file_path = fileName .. ".mid"
-local os_mml2mid = "mml2mid " .. mml_file_path .. " " .. mid_file_path .. " > " .. mml2mid_path .. "\\os_mml2mid.err"
+local os_mml2mid =
+"mml2mid " .. mml_file_path .. " " .. mid_file_path .. " > " .. mml2mid_path ..
+    "\\os_mml2mid.err"
 
 if settings._SUBNAME == ".mp3" then
-    os_mid2audio =
-        "timidity " ..
-        mid_file_path ..
-            " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " ..
-                audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
+    os_mid2audio = "timidity " .. mid_file_path ..
+        " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " ..
+        audio_file_path .. " > " .. timidity_path ..
+        "\\os_mid2audio.err"
 elseif settings._SUBNAME == ".wav" then
     os_mid2audio =
-        "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path .. " > " .. timidity_path .. "\\os_mid2audio.err"
+    "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path .. " > " ..
+        timidity_path .. "\\os_mid2audio.err"
 end
 -- 'timidity '..mid_file_path..' -Ow -o '..audio_file_path
 -- 'timidity '..mid_file_path..' -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k '..audio_file_path
@@ -191,19 +190,16 @@ if not getUserConf(getDiceQQ(), "l2m:state") then
 soundfont "]] .. sf2_selected .. [["
 
 #extension opt -U]]
-    os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path .. ';%path%"')
+    os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path ..
+        ';%path%"')
     setUserConf(getDiceQQ(), "l2m:state", true)
     write_file(timidity_path .. "\\timidity.cfg", cfg_text, "w+")
-    return os.date("%X") ..
-        " " ..
-            os.date("%x") ..
-                "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t" ..
-                    mml2mid_path ..
-                        "\n\t" ..
-                            timidity_path ..
-                                "\n>timidity:已自动生成cfg文件~\n\t可用音源" ..
-                                    #sf2_list ..
-                                        "个\n\t" .. sf2_list_text .. "选择了音源【" .. sf2_selected .. "】\n请重启框架使环境变量生效!"
+    return os.date("%X") .. " " .. os.date("%x") ..
+        "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t" ..
+        mml2mid_path .. "\n\t" .. timidity_path ..
+        "\n>timidity:已自动生成cfg文件~\n\t可用音源" ..
+        #sf2_list .. "个\n\t" .. sf2_list_text .. "选择了音源【" ..
+        sf2_selected .. "】\n请重启框架使环境变量生效!"
 end
 
 -- return nargs[2]
@@ -215,7 +211,9 @@ if nargs[2] ~= "clr" then
     end
 
     if #file_list >= settings._WARNING then
-        sendMsg("{self}处音频和乐谱缓存有点多了哦，要及时处理呢~", msg.fromGroup, msg.fromQQ)
+        sendMsg(
+            "{self}处音频和乐谱缓存有点多了哦，要及时处理呢~",
+            msg.fromGroup, msg.fromQQ)
     end
 
     if #file_list >= settings._AUTOCLR then
@@ -235,7 +233,8 @@ if nargs[2] ~= "clr" then
                         ["file"] = mid_file_path,
                         ["name"] = fileName:match(".+\\(.+)$") .. ".mid"
                     }
-                    url = "http://127.0.0.1:" .. settings._APIPORT .. "/upload_group_file"
+                    url = "http://127.0.0.1:" .. settings._APIPORT ..
+                        "/upload_group_file"
                     http.post(url, json.encode(para))
                 end
                 return "[CQ:record,file=file:///" .. audio_file_path .. "]"
@@ -248,7 +247,8 @@ if nargs[2] ~= "clr" then
             return ">timidity: 转换音频格式错误!\n请检查timidity路径是否在环境变量内。"
         end
     else
-        return ">mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?\n错误详情:" ..
+        return ">mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?\n错误详情:"
+            ..
             readFileStringLine(mml2mid_path .. "\\os_mml2mid.err", 2)
     end
 else
