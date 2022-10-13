@@ -65,7 +65,8 @@
 1.<i>mml2mid.lua</i><b>_UPLOAD</b>与<b>_APIPORT</b>完善，预期功能已实现。
 <h5>改动</h5>
 1.<i>mml2mid.lua</i>原本注释的<b>_WARNING</b>配置项现已恢复原有功能。
-2.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
+<br/>
+.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
 </details>
 
 ***
@@ -82,7 +83,9 @@
 <summary>2022年10月9日 实现了timidity.cfg的自动写入。</summary>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增了对<i>timidity</i>音源的检测。
+<br/>
 2.<i>mml2mid.lua</i> 新增<i>_FRAMWORK</i>配置项，判断框架类型。
+<br/>
 3.<i>mml2mid.lua</i> 新增mml语法报错检测和输出(如果你看得懂那会很有帮助就是了)。
 <h5>修复</h5>
 1. 修复了因<i>timidity.cfg</i>参数<b>dir</b>固定而无法输出有声音的音频问题。
@@ -94,6 +97,7 @@
 <summary>2022年10月8日 初步框架版本编写完毕。</summary>
 <h5>新增</h5>
 1. <i>mml2mid.lua</i> 新增一些配置项。
+<br/>
 2. 新增了对 <i>timidity.cfg</i> 的查询功能。
 <h5>删减</h5>
 1. 改动了部分语法。
