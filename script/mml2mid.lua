@@ -7,26 +7,27 @@
 
 --------------------settings---------------------
 settings = {
-    ["_FRAMWORK"] = "Gocq", -- Mirai
+    _FRAMWORK = "Gocq", -- "Mirai",
     -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
-    _ONEFILE = os.date("%A"), -- false
+    _ONEFILE = false,
+     --os.date("%A"),
     -- 是否将每次的乐谱记录在同一个文件内.
 
-    -- ['_WARNING'] = 10,
-    -- 音频文件过多报警上限,未填时默认10
+    _WARNING = 18,
+    -- 音频文件过多报警上限,未填时默认18
 
-    ["_AUTOCLR"] = 20,
-    -- 音频文件自动清理，为-1时不清理,未填时默认20
+    _AUTOCLR = 21,
+    -- 音频文件自动清理，为-1时不清理,未填时默认21
 
-    ["_SUBNAME"] = ".mp3", --.wav
+    _SUBNAME = ".mp3", --".wav",
     -- 规定输出格式,填写mp3时需要安装ffmpeg.
 
-    ["_UPLOAD"] = true, --false
+    _UPLOAD = true, --false,
     -- 是否在发出语音同时上传mid文件(仅限Gocq).
     -- 对应下参数_APIPORT.
 
-    ["_APIPORT"] = nil -- 15800
+    _APIPORT = 15700 -- nil
     -- Gocq 本地 API 端口,填nil时将自动搜寻,若报错请自行填入.
 }
 -------------------------------------------------
@@ -46,6 +47,7 @@ settings = {
 -- 读取文件指定行.
 -------------------------------------------------
 string = require("string")
+json = require("json")
 
 write_file = function(path, text, mode)
     file = io.open(path, mode)
@@ -211,13 +213,12 @@ if nargs[2] ~= "clr" then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
     end
-    --[[
+
     if #file_list >= settings._WARNING then
-        return '{self}音频文件过多辣，不想干活了！'
+        sendMsg("{self}处音频和乐谱缓存有点多了哦，要及时处理呢~", msg.fromGroup, msg.fromQQ)
     end
-]] if
-        #file_list >= settings._AUTOCLR
-     then
+
+    if #file_list >= settings._AUTOCLR then
         clr(mml2mid_path .. "\\project")
         write_file(mml2mid_path .. "\\project\\init", "", "w+")
     end
@@ -228,6 +229,15 @@ if nargs[2] ~= "clr" then
         mid2audio_stat, _ = os.execute(os_mid2audio)
         if mid2audio_stat then
             if settings._FRAMWORK == "Gocq" then
+                if settings._UPLOAD and msg.gid then
+                    para = {
+                        ["group_id"] = msg.gid,
+                        ["file"] = mid_file_path,
+                        ["name"] = fileName:match(".+\\(.+)$") .. ".mid"
+                    }
+                    url = "http://127.0.0.1:" .. settings._APIPORT .. "/upload_group_file"
+                    http.post(url, json.encode(para))
+                end
                 return "[CQ:record,file=file:///" .. audio_file_path .. "]"
             elseif settings._FRAMWORK == "Mirai" then
                 return "[CQ:record,file=" .. audio_file_path .. "]"
