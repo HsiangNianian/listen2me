@@ -66,7 +66,7 @@
 <h5>改动</h5>
 1.<i>mml2mid.lua</i>原本注释的<b>_WARNING</b>配置项现已恢复原有功能。
 <br/>
-.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
+2.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
 </details>
 
 ***
