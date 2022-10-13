@@ -8,7 +8,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.5",
+    "ver":"1.1.7",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
@@ -60,6 +60,17 @@
 ***
 
 <details>
+<summary>2022年10月13日 完善Gocq上传群文件机制。</summary>
+<h5>新增</h5>
+1.<i>mml2mid.lua</i><b>_UPLOAD</b>与<b>_APIPORT</b>完善，预期功能已实现。
+<h5>改动</h5>
+1.<i>mml2mid.lua</i>原本注释的<b>_WARNING</b>配置项现已恢复原有功能。
+2.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
+</details>
+
+***
+
+<details>
 <summary>2022年10月11日 新增配置项。</summary>
 <h5>新增</h5>
 1.<i>mml2mid.lua</i>新增<b>_UPLOAD</b>与<b>_APIPORT</b>配置，详细使用说明见脚本。
@@ -100,4 +111,4 @@
 
 ***
 
-> 2022年10月9日21点
+2022年10月13日17点51分
