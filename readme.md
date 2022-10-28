@@ -10,7 +10,7 @@
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.7",
+    "ver":"1.1.8",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
