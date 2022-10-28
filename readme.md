@@ -25,6 +25,8 @@
 
 # 配置
 
+[使用功能模块前先根据注释内容修改合适的配置](https://github.com/cypress0522/listen2me/blob/Windows-Version/script/mml2mid.lua)
+
 ```lua
 --------------------settings---------------------
 settings = {
@@ -65,7 +67,7 @@ settings = {
   这些就是所谓的缓存，一次生成三个，因此才有了 `_WARNING`和 `_AUTOCLR`配置——但要注意的是，这些配置的存在只是为了那些不会主动的清理的人罢了，如果你比较勤快那么我想除了添加 `_ONEFILE`配置项外，你一定会经常使用 `l2m>clr`指令去清理这些缓存的。
 
 - 生成曲谱
-  指令格式:`l2m>[mml]`，由于mml语法过于繁琐因此在这里不一一赘述，只是做几个示例。
+  指令格式:`l2m>[mml]`，由于mml语法过于繁琐因此在这里不一一赘述，只是做几个示例，日后会写专门的文档系统介绍此功能模块的mml语法。
   1. 单轨示例
   ```mml
   l2m>A cdefgab
@@ -77,12 +79,6 @@ settings = {
 
   B /*M 0  */  <c8g8>d+4<<g8>d8a+4/*M 1  */  <g+8>d+8<a+4>d+4d4/*M 2  */  c8g8>d+4<<g8>d8a+4/*M 3  */  <g+8>d+8>c8<d+8<g+8>d+8<a+8b8/*M 4  */  >c8g8>d+8<g8<g8>d8a+8d8/*M 5  */  <g+8>d+8<a+4>d+8a+8d4/*M 6  */  c8g8>d+8<g8<g8>d8a+8d8/*M 7  */  <g+8>d+8>c8.<<a+16b4g+4/*M 8  */  a+8>f8a+4<<a+2/*M 9  */  >g+8>d+8>c8<d+8<g+8>d8a+8d8/*M 10 */  <g8>d+8a+8d+8c8g8>d8d+8/*M 11 */  <<f8>g8>d+8<g+8<a+8>f8>d8<a+8/*M 12 */  <d+8a+8>d+8<a+8>c+8<a+8>c+8<<a+8/*M 13 */  >g+8>d+8>c8<d+8<g+8>d8a+8d8/*M 14 */  <g8>d8.<g8.>c4<d8d+8/*M 15 */  f8>c8g+8c8<g8>d+8a+8d+8/*M 16 */  <g+8>d+8>c8<d+16.<<a+32o4d2/*M 17 */  <<d+16a+16>g16g+16a+8.<d+4.&d+16d+8
   ```
-
-# 参考
-
-- [http://hpc.jp/~mml2mid](http://hpc.jp/~mml2mid)
-- [https://man.archlinux.org/man/timidity.cfg.5](https://man.archlinux.org/man/timidity.cfg.5)
-- [https://man.archlinux.org/man/community/timidity++/timidity.1.en](https://man.archlinux.org/man/community/timidity++/timidity.1.en)
 
 # 音源
 
@@ -108,6 +104,12 @@ settings = {
 * [Aegean Symphonic Orchestra v2.5 universal](https://sites.google.com/view/hed-sounds/aegean-symphonic-orchestra) (350 MB)
 * [Salamander C5 Light](https://sites.google.com/view/hed-sounds/salamander-c5-light) (25 MB)
 
+# 参考
+
+- [http://hpc.jp/~mml2mid](http://hpc.jp/~mml2mid)
+- [https://man.archlinux.org/man/timidity.cfg.5](https://man.archlinux.org/man/timidity.cfg.5)
+- [https://man.archlinux.org/man/community/timidity++/timidity.1.en](https://man.archlinux.org/man/community/timidity++/timidity.1.en)
+- 
 # 日志
 
 > 此日志写的比工程文件要晚那么一点。
@@ -180,4 +182,4 @@ settings = {
 
 ---
 
-2022年10月29日03点09分
+2022年10月29日03点50分
