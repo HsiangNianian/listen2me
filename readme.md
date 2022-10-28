@@ -1,6 +1,6 @@
 # listen2me
 
-![](https://img.shields.io/github/last-commit/cypress0522/listen2me)![](https://img.shields.io/github/issues/cypress0522/listen2me)![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)
+[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/Windows-Version)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)
 
 为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
 
