@@ -1,8 +1,9 @@
 # listen2me
 
+![](https://img.shields.io/github/last-commit/cypress0522/listen2me)![](https://img.shields.io/github/issues/cypress0522/listen2me)![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)
 为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
 
-此分支为Windows版本。
+此分支为Windows版本，如果在使用过程中遇到了困难，欢迎到原仓库提交[issue](https://github.com/cypress0522/listen2me/issues/new)
 
 ```json
 {
