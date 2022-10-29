@@ -4,7 +4,7 @@
 
 此分支为Windows版本。
 
-为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
+listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
 
 如果在使用过程中遇到了困难，欢迎到原仓库提交[issue](https://github.com/cypress0522/listen2me/issues/new)；如果在使用过程中修改出更有意思的玩法，也欢迎到原仓库提交[PR](https://github.com/cypress0522/listen2me/pulls)。
 
@@ -197,6 +197,6 @@ settings = {
 1. 修复了一些bug。
 </details>
 
----
+***
 
-2022年10月29日03点50分
+2022年10月29日08点38分
