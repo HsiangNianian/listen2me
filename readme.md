@@ -74,7 +74,7 @@ settings = {
 
 # 指令
 
-一般指令格式:`l2m>[opt=clr|mml|...]
+一般指令格式:`l2m>[opt=clr|mml|...]`
 
 - 清理缓存
   成功执行一次mml命令后会在 `./project/`生成这几样东西:
