@@ -1,6 +1,6 @@
 # listen2me
 
-[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/Windows-Version)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)
+[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/Windows-Version)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)[![download](https://img.shields.io/github/downloads/cypress0522/listen2me/total.svg)](https://github.com/cypress0522/listen2me/releases/download/v1.0.8/listen2me_v1.0.8.zip)
 
 此分支为Windows版本。
 
