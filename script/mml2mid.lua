@@ -5,11 +5,11 @@
 -- @git htps://github.com/cypress0522/listen2me
 -------------------------------------------------
 --------------------settings---------------------
-settings = {
+local settings = {
     _FRAMWORK = "Gocq", -- "Mirai",
     -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
-    _ONEFILE = false, -- os.date("%A"),
+    _ONEFILE = "xx", -- os.date("%A"),
     -- 是否将每次的乐谱记录在同一个文件内.
 
     _WARNING = 18,
@@ -21,7 +21,7 @@ settings = {
     _SUBNAME = ".mp3", -- ".wav",
     -- 规定输出格式,填写mp3时需要安装ffmpeg.
 
-    _UPLOAD = true, -- false,
+    _UPLOAD = false, -- false,
     -- 是否在发出语音同时上传mid文件(仅限Gocq).
     -- 对应下参数_APIPORT.
 
@@ -44,8 +44,8 @@ settings = {
 -- @readFileStringLine(url,line)
 -- 读取文件指定行.
 -------------------------------------------------
-string = require("string")
-json = require("json")
+local string = require("string")
+local json = require("json")
 
 write_file = function(path, text, mode)
     file = io.open(path, mode)

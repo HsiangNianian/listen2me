@@ -1,0 +1,34 @@
+{
+    "Lua.diagnostics.globals": [
+        "msg_reply",
+        "msg",
+        "getDiceDir",
+        "getUserConf",
+        "getDiceQQ",
+        "ranint",
+        "setUserConf",
+        "sendMsg",
+        "http",
+        "write_file",
+        "file",
+        "read_file",
+        "delete_file",
+        "file_list",
+        "getFileList",
+        "fileName",
+        "os_mid2audio",
+        "clr",
+        "readFileStringLine",
+        "sf2_selected",
+        "sf2_list_text",
+        "mid2audio_stat",
+        "para",
+        "mml2mid_stat",
+        "url",
+        "status"
+    ],
+    "Lua.diagnostics.disable": [
+        "need-check-nil",
+        "redundant-parameter"
+    ]
+}
