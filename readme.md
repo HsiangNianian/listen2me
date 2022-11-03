@@ -1,6 +1,6 @@
 # listen2me
 
-[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/Windows-Version)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)
+[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/Windows-Version)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)[![download](https://img.shields.io/github/downloads/cypress0522/listen2me/total.svg)](https://github.com/cypress0522/listen2me/releases/download/v1.0.8/listen2me_v1.0.8.zip)
 
 此分支为Windows版本。
 
@@ -74,7 +74,7 @@ settings = {
 
 # 指令
 
-一般指令格式:`l2m>[opt=clr|mml|...]
+一般指令格式:`l2m>[opt=clr|mml|...]`
 
 - 清理缓存
   成功执行一次mml命令后会在 `./project/`生成这几样东西:
