@@ -43,7 +43,7 @@ listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲�
 
 # 配置
 
-[使用功能模块前先根据注释内容修改合适的配置](https://github.com/cypress0522/listen2me/blob/Windows-Version/script/mml2mid.lua)
+[使用功能模块前先根据注释内容修改合适的配置](/script/mml2mid.lua)
 
 ```lua
 --------------------settings---------------------
