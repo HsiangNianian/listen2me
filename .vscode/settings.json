@@ -25,7 +25,9 @@
         "para",
         "mml2mid_stat",
         "url",
-        "status"
+        "status",
+        "event",
+        "eventMsg"
     ],
     "Lua.diagnostics.disable": [
         "need-check-nil",
