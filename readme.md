@@ -12,12 +12,13 @@ listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲�
 {
     "mod":"listen2me",
     "author":"简律纯",
-    "ver":"1.1.8",
+    "ver":"2.1.0",
     "dice_build":612,
     "brief":"使用mml作曲",
     "comment":"",
     "helpdoc":{
-        "listen2me":"【listen2me[Windows]】\n使用mml语言进行作曲\nhttps://github.com/cypress0522/listen2me"
+        "listen2me":"【listen2me[Windows]】\n使用mml语言进行作曲\nhttps://github.com/cypress0522/listen2me",
+        "loopstraining":"基于listen2me的听音训练娱乐模块"
     }
 }
 ```
@@ -47,11 +48,11 @@ listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲�
 
 ```lua
 --------------------settings---------------------
-settings = {
+Settings = {
     _FRAMWORK = "Gocq", -- "Mirai",
     -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
-    _ONEFILE = false, -- os.date("%A"),
+    _ONEFILE = "xx", -- os.date("%A"),
     -- 是否将每次的乐谱记录在同一个文件内.
 
     _WARNING = 18,
@@ -63,7 +64,7 @@ settings = {
     _SUBNAME = ".mp3", -- ".wav",
     -- 规定输出格式,填写mp3时需要安装ffmpeg.
 
-    _UPLOAD = true, -- false,
+    _UPLOAD = false, -- false,
     -- 是否在发出语音同时上传mid文件(仅限Gocq).
     -- 对应下参数_APIPORT.
 
@@ -136,6 +137,16 @@ settings = {
 # 日志
 
 > 此日志写的比工程文件要晚那么一点。
+
+---
+
+<details>
+<summary>2022年11月20日 开了一个新的坑——听音练习。</summary>
+<h5>新增</h5>
+1.<i>loopstraining</i>新增听音练习娱乐模块。
+<h5>改动</h5>
+1.<i>mml2mid.lua</i>将所有的局部变量名称首字母大写。
+</details>
 
 ---
 

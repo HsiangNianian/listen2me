@@ -5,7 +5,7 @@
 -- @git htps://github.com/cypress0522/listen2me
 -------------------------------------------------
 --------------------settings---------------------
-local settings = {
+Settings = {
     _FRAMWORK = "Gocq", -- "Mirai",
     -- 框架名称,必填,可选参数:'Mirai'或'Gocq'(默认).
 
@@ -136,37 +136,37 @@ end
 -- @wav_file_path 同上,无损波形文件(*.wav).
 -- @mid_file_path 同上,生成的mid文件(*.mid).
 -------------------------------------------------
-local time = os.date("%Y%m%d%H%M%S")
-local nargs = string.split(msg.fromMsg, ">")
-local rest = string.sub(msg.fromMsg, #"l2m>" + 1)
-local mml2mid_path = getDiceDir() .. "\\mod\\listen2me\\mml2mid"
-local file_list = getFileList(mml2mid_path .. "\\project")
-local timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
-local sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity",
+Time = os.date("%Y%m%d%H%M%S")
+Nargs = string.split(msg.fromMsg, ">")
+Rest = string.sub(msg.fromMsg, #"l2m>" + 1)
+Mml2mid_path = getDiceDir() .. "\\mod\\listen2me\\mml2mid"
+File_list = getFileList(Mml2mid_path .. "\\project")
+Timidity_path = getDiceDir() .. "\\mod\\listen2me\\timidity"
+Sf2_list = getFileList(getDiceDir() .. "\\mod\\listen2me\\timidity",
     "*.sf2")
 
-if settings._ONEFILE then
-    fileName = mml2mid_path .. "\\project\\" .. settings._ONEFILE
+if Settings._ONEFILE then
+    fileName = Mml2mid_path .. "\\project\\" .. Settings._ONEFILE
 else
-    fileName = mml2mid_path .. "\\project\\" .. msg.fromQQ .. time
+    fileName = Mml2mid_path .. "\\project\\" .. msg.fromQQ .. Time
 end
 
-local mml_file_path = fileName .. ".mml"
-local audio_file_path = fileName .. settings._SUBNAME
-local mid_file_path = fileName .. ".mid"
-local os_mml2mid =
-"mml2mid " .. mml_file_path .. " " .. mid_file_path .. " > " .. mml2mid_path ..
+Mml_file_path = fileName .. ".mml"
+Audio_file_path = fileName .. Settings._SUBNAME
+Mid_file_path = fileName .. ".mid"
+Os_mml2mid =
+"mml2mid " .. Mml_file_path .. " " .. Mid_file_path .. " > " .. Mml2mid_path ..
     "\\os_mml2mid.err"
 
-if settings._SUBNAME == ".mp3" then
-    os_mid2audio = "timidity " .. mid_file_path ..
+if Settings._SUBNAME == ".mp3" then
+    Os_mid2audio = "timidity " .. Mid_file_path ..
         " -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k " ..
-        audio_file_path .. " > " .. timidity_path ..
+        Audio_file_path .. " > " .. Timidity_path ..
         "\\os_mid2audio.err"
-elseif settings._SUBNAME == ".wav" then
-    os_mid2audio =
-    "timidity " .. mid_file_path .. " -Ow -o " .. audio_file_path .. " > " ..
-        timidity_path .. "\\os_mid2audio.err"
+elseif Settings._SUBNAME == ".wav" then
+    Os_mid2audio =
+    "timidity " .. Mid_file_path .. " -Ow -o " .. Audio_file_path .. " > " ..
+        Timidity_path .. "\\os_mid2audio.err"
 end
 -- 'timidity '..mid_file_path..' -Ow -o '..audio_file_path
 -- 'timidity '..mid_file_path..' -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k '..audio_file_path
@@ -175,71 +175,71 @@ end
 -- @Proc run 脚本运行过程
 -------------------------------------------------
 if not getUserConf(getDiceQQ(), "l2m:state") then
-    if #sf2_list ~= 0 then
-        sf2_selected = sf2_list[ranint(1, #sf2_list)]
-        sf2_list_text = ""
-        for k, v in ipairs(sf2_list) do
-            sf2_list_text = v .. "\n\t" .. sf2_list_text
+    if #Sf2_list ~= 0 then
+        Sf2_selected = Sf2_list[ranint(1, #Sf2_list)]
+        Sf2_list_text = ""
+        for k, v in ipairs(Sf2_list) do
+            Sf2_list_text = v .. "\n\t" .. Sf2_list_text
         end
     else
-        return ">timidity: 笨蛋你好像没有装音源(*.sf2)哦...\n甩给你一个链接https://github.com/cypress0522/listen2me#%E9%9F%B3%E6%BA%90%E4%B8%8B%E8%BD%BD"
+        return ">timidity: 笨蛋你好像没有装音源(*.sf2)哦...\n甩给你一个链接https://github.com/cypress0522/listen2me"
     end
 
-    local cfg_text = [[dir "]] .. timidity_path .. [["
+    local Cfg_text = [[dir "]] .. Timidity_path .. [["
 
-soundfont "]] .. sf2_selected .. [["
+soundfont "]] .. Sf2_selected .. [["
 
 #extension opt -U]]
-    os.execute('setx "path" "' .. mml2mid_path .. ";" .. timidity_path ..
+    os.execute('setx "path" "' .. Mml2mid_path .. ";" .. Timidity_path ..
         ';%path%"')
     setUserConf(getDiceQQ(), "l2m:state", true)
-    write_file(timidity_path .. "\\timidity.cfg", cfg_text, "w+")
+    write_file(Timidity_path .. "\\timidity.cfg", Cfg_text, "w+")
     return os.date("%X") .. " " .. os.date("%x") ..
         "\n>listen2me: 初始化成功~\n\t已将以下路径添加到用户变量(path):\n\t" ..
-        mml2mid_path .. "\n\t" .. timidity_path ..
+        Mml2mid_path .. "\n\t" .. Timidity_path ..
         "\n>timidity:已自动生成cfg文件~\n\t可用音源" ..
-        #sf2_list .. "个\n\t" .. sf2_list_text .. "选择了音源【" ..
-        sf2_selected .. "】\n请重启框架使环境变量生效!"
+        #Sf2_list .. "个\n\t" .. Sf2_list_text .. "选择了音源【" ..
+        Sf2_selected .. "】\n请重启框架使环境变量生效!"
 end
 
 -- return nargs[2]
 
-if nargs[2] ~= "clr" then
-    if settings._ONEFILE then
-        clr(mml2mid_path .. "\\project")
-        write_file(mml2mid_path .. "\\project\\init", "", "w+")
+if Nargs[2] ~= "clr" then
+    if Settings._ONEFILE then
+        clr(Mml2mid_path .. "\\project")
+        write_file(Mml2mid_path .. "\\project\\init", "", "w+")
     end
 
-    if #file_list >= settings._WARNING then
+    if #File_list >= Settings._WARNING then
         sendMsg(
             "{self}处音频和乐谱缓存有点多了哦，要及时处理呢~",
             msg.fromGroup, msg.fromQQ)
     end
 
-    if #file_list >= settings._AUTOCLR then
-        clr(mml2mid_path .. "\\project")
-        write_file(mml2mid_path .. "\\project\\init", "", "w+")
+    if #File_list >= Settings._AUTOCLR then
+        clr(Mml2mid_path .. "\\project")
+        write_file(Mml2mid_path .. "\\project\\init", "", "w+")
     end
 
-    write_file(mml_file_path, rest, "w+")
-    mml2mid_stat, _ = os.execute(os_mml2mid)
-    if mml2mid_stat then
-        mid2audio_stat, _ = os.execute(os_mid2audio)
-        if mid2audio_stat then
-            if settings._FRAMWORK == "Gocq" then
-                if settings._UPLOAD and msg.gid then
+    write_file(Mml_file_path, Rest, "w+")
+    Mml2mid_stat, _ = os.execute(Os_mml2mid)
+    if Mml2mid_stat then
+        Mid2audio_stat, _ = os.execute(Os_mid2audio)
+        if Mid2audio_stat then
+            if Settings._FRAMWORK == "Gocq" then
+                if Settings._UPLOAD and msg.gid then
                     para = {
                         ["group_id"] = msg.gid,
-                        ["file"] = mid_file_path,
+                        ["file"] = Mid_file_path,
                         ["name"] = fileName:match(".+\\(.+)$") .. ".mid"
                     }
-                    url = "http://127.0.0.1:" .. settings._APIPORT ..
+                    url = "http://127.0.0.1:" .. Settings._APIPORT ..
                         "/upload_group_file"
                     http.post(url, json.encode(para))
                 end
-                return "[CQ:record,file=file:///" .. audio_file_path .. "]"
-            elseif settings._FRAMWORK == "Mirai" then
-                return "[CQ:record,file=" .. audio_file_path .. "]"
+                return "[CQ:record,file=file:///" .. Audio_file_path .. "]"
+            elseif Settings._FRAMWORK == "Mirai" then
+                return "[CQ:record,file=" .. Audio_file_path .. "]"
             else
                 return '请填写正确的_FRAMWORK配置哦~\n比如"Mirai"或者"Gocq"。'
             end
@@ -249,10 +249,10 @@ if nargs[2] ~= "clr" then
     else
         return ">mml2mid: mml语法错误!\n笨蛋你真的有了解过mml或者读过纯子写的mml教程吗?\n错误详情:"
             ..
-            readFileStringLine(mml2mid_path .. "\\os_mml2mid.err", 2)
+            readFileStringLine(Mml2mid_path .. "\\os_mml2mid.err", 2)
     end
 else
-    status = clr(mml2mid_path .. "\\project")
-    write_file(mml2mid_path .. "\\project\\init", "", "w+")
+    status = clr(Mml2mid_path .. "\\project")
+    write_file(Mml2mid_path .. "\\project\\init", "", "w+")
     return status
 end
