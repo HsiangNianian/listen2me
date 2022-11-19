@@ -148,7 +148,6 @@ Settings = {
 1.<i>mml2mid.lua</i>将所有的局部变量名称首字母大写。
 </details>
 
----
 
 <details>
 <summary>2022年10月29日 发现了几个bug，更新了readme。</summary>
@@ -158,7 +157,6 @@ Settings = {
 1.<i>readme.md</i>新增指令介绍。
 </details>
 
----
 
 <details>
 <summary>2022年10月13日 完善Gocq上传群文件机制。</summary>
@@ -170,7 +168,6 @@ Settings = {
 2.<i>mml2mid.lua</i>配置项<b>_AUTOCLR</b>默认上限提高。
 </details>
 
----
 
 <details>
 <summary>2022年10月11日 新增配置项。</summary>
@@ -178,7 +175,6 @@ Settings = {
 1.<i>mml2mid.lua</i>新增<b>_UPLOAD</b>与<b>_APIPORT</b>配置，详细使用说明见脚本。
 </details>
 
----
 
 <details>
 <summary>2022年10月9日 实现了timidity.cfg的自动写入。</summary>
@@ -192,7 +188,6 @@ Settings = {
 1. 修复了因<i>timidity.cfg</i>参数<b>dir</b>固定而无法输出有声音的音频问题。
 </details>
 
----
 
 <details>
 <summary>2022年10月8日 初步框架版本编写完毕。</summary>
@@ -204,7 +199,6 @@ Settings = {
 1. 改动了部分语法。
 </details>
 
----
 
 <details>
 <summary>2022年10月2日 准备套壳，已经实现mml转mid，mid转wav，下一阶段将会编写脚本使其脚本化。</summary>
@@ -214,6 +208,5 @@ Settings = {
 1. 修复了一些bug。
 </details>
 
-***
 
-2022年10月29日08点38分
+2022年11月20日02点00分
