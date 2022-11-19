@@ -132,7 +132,6 @@ Settings = {
 - [http://hpc.jp/~mml2mid](http://hpc.jp/~mml2mid)
 - [https://man.archlinux.org/man/timidity.cfg.5](https://man.archlinux.org/man/timidity.cfg.5)
 - [https://man.archlinux.org/man/community/timidity++/timidity.1.en](https://man.archlinux.org/man/community/timidity++/timidity.1.en)
-- 
 
 # 日志
 
