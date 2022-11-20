@@ -10,8 +10,8 @@ require("mml2mid")
 local VERSION = "v1.0.0"
 local SETTINGS = Settings
 local MML_FILE_PATH = getDiceDir() .. "\\mod\\listen2me\\mml2mid\\project\\" .. "loopstraning.mml"
-local SINGLE_STAT = getUserConf(getDiceQQ(), "loopstraning:SINGLE_STAT")
-local MUTI_STAT = getUserConf(getDiceQQ(), "loopstraning:MUTI_STAT" .. msg.fromGroup)
+local SINGLE_STAT = getUserConf(msg.fromQQ, "listen2me:loopstraining_SINGLE_STAT")
+local MUTI_STAT = getUserConf(getDiceQQ(), "listen2me:loopstraining_MUTI_STAT" .. msg.fromGroup)
 ------------------------------------------------------
 local note = {
     "c",
@@ -39,12 +39,12 @@ end
 if msg.fromMsg:match("^个人(.*)") then
     --个人
     if SINGLE_STAT then
-        return "个人听音练习已经有人在玩了哦~还请{nick}稍等呢~"
+        return "个人听音练习已经开始了哦~还请{nick}作答呢~"
     else
         --开始游戏
         generate(note, 1)
         -- setUserConf(getDiceQQ(),"listen2me:loopstraining_STAT",true)
-        setUserConf(getDiceQQ(), "listen2me:loopstraining:SINGLE_STAT",true)
+        setUserConf(msg.fromQQ, "listen2me:loopstraining_SINGLE_STAT",true)
         return "请{nick}仔细聆听这段语音，然后将答案发送出来哦~\ntips:比如发送这样的——o6a"
     end
 

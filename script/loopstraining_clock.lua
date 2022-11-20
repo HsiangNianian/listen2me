@@ -6,4 +6,4 @@ setUserConf(getDiceQQ(),
         0)
     + 5)
 -------------------------------------------------
-local TIME = getUserConf(getDiceQQ(),"listen2me:loopstraining_clock")
+local TIME = getUserConf(getDiceQQ(), "listen2me:loopstraining_clock")
