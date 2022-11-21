@@ -42,7 +42,7 @@ if msg.fromMsg:match("^个人(.*)") then
         return "个人听音练习已经开始了哦~还请{nick}作答呢~"
     else
         --开始游戏
-        generate(note, 1)
+        generate(note, 3)
         -- setUserConf(getDiceQQ(),"listen2me:loopstraining_STAT",true)
         setUserConf(msg.fromQQ, "listen2me:loopstraining_SINGLE_STAT",true)
         return "请{nick}仔细聆听这段语音，然后将答案发送出来哦~\ntips:比如发送这样的——o6a"
