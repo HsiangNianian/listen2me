@@ -1,12 +1,12 @@
 # listen2me
 
-[![](https://img.shields.io/github/last-commit/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/commits/main)[![](https://img.shields.io/github/issues/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/issues)[![](https://img.shields.io/github/issues-pr/cypress0522/listen2me)](https://github.com/cypress0522/listen2me/pulls)[![](https://img.shields.io/github/v/release/cypress0522/listen2me?include_prereleases)](https://github.com/cypress0522/listen2me/releases)[![download](https://img.shields.io/github/downloads/cypress0522/listen2me/total.svg)](https://github.com/cypress0522/listen2me/releases/download/v1.0.8/listen2me_v1.0.8.zip)
+[![](https://img.shields.io/github/last-commit/A2C29K9/listen2me)](https://github.com/A2C29K9/listen2me/commits/main)[![](https://img.shields.io/github/issues/A2C29K9/listen2me)](https://github.com/A2C29K9/listen2me/issues)[![](https://img.shields.io/github/issues-pr/A2C29K9/listen2me)](https://github.com/A2C29K9/listen2me/pulls)[![](https://img.shields.io/github/v/release/A2C29K9/listen2me?include_prereleases)](https://github.com/A2C29K9/listen2me/releases)[![download](https://img.shields.io/github/downloads/A2C29K9/listen2me/total.svg)](https://github.com/A2C29K9/listen2me/releases/download/v1.0.8/listen2me_v1.0.8.zip)
 
 此分支为Windows版本。
 
 listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲试听。
 
-如果在使用过程中遇到了困难，欢迎到原仓库提交[issue](https://github.com/cypress0522/listen2me/issues/new)；如果在使用过程中修改出更有意思的玩法，也欢迎到原仓库提交[PR](https://github.com/cypress0522/listen2me/pulls)。
+如果在使用过程中遇到了困难，欢迎到原仓库提交[issue](https://github.com/A2C29K9/listen2me/issues/new)；如果在使用过程中修改出更有意思的玩法，也欢迎到原仓库提交[PR](https://github.com/A2C29K9/listen2me/pulls)。
 
 ```json
 {
@@ -17,7 +17,7 @@ listen2me是为Dice!编写的Lua脚本，用于mml(Music Macro Language)作曲�
     "brief":"使用mml作曲",
     "comment":"",
     "helpdoc":{
-        "listen2me":"【listen2me[Windows]】\n使用mml语言进行作曲\nhttps://github.com/cypress0522/listen2me",
+        "listen2me":"【listen2me[Windows]】\n使用mml语言进行作曲\nhttps://github.com/A2C29K9/listen2me",
         "loopstraining":"基于listen2me的听音训练娱乐模块"
     }
 }
